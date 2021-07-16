@@ -1,4 +1,5 @@
 import streamlit as st
+from ml import test
 st.title("Face Mask Detection using Machine Learning")
 st.text("Upload an Image for image classification as with_mask or without_mask")
 
@@ -7,6 +8,7 @@ def main():
    
     if file_uploaded is not None:    
         image = Image.open(file_uploaded)
+        mypredict(image)
         #fig = plt.figure()
         plt.imshow(image)
         plt.axis("off")
@@ -14,7 +16,11 @@ def main():
         #st.write(predictions)
         #st.pyplot(fig)  
         
-        
+def mypredict(image):
+    results = test(image)
+    
+    
+    
 def predict(image):
     classifier_model = "https://tfhub.dev/agripredict/disease-classification/1"
     IMAGE_SHAPE = (300, 300,3)
@@ -39,3 +45,4 @@ def predict(image):
 
 if __name__ == "__main__":
     main()
+    
