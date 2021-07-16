@@ -1,6 +1,5 @@
 import streamlit as st
 st.title("Face Mask Detection using Machine Learning")
-st.header("Face Mask Detection using Machine Learning")
 st.text("Upload an Image for image classification as with_mask or without_mask")
 
 def main():
@@ -8,12 +7,12 @@ def main():
    
     if file_uploaded is not None:    
         image = Image.open(file_uploaded)
-        fig = plt.figure()
+        #fig = plt.figure()
         plt.imshow(image)
         plt.axis("off")
-        predictions = predict(image)
-        st.write(predictions)
-        st.pyplot(fig)  
+        #predictions = predict(image)
+        #st.write(predictions)
+        #st.pyplot(fig)  
         
         
 def predict(image):
@@ -37,10 +36,6 @@ def predict(image):
           'without_mask':0,
           
 }
-   
-    result = f"{class_names[np.argmax(scores)]} with a { (100 * np.max(scores)).round(2) } percent confidence." 
-    return result
-  
-  
+
 if __name__ == "__main__":
     main()
