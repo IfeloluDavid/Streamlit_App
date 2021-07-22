@@ -75,8 +75,8 @@ def main():
             out.write(g.read())  # Read bytes into file
           # close file
             out.close()
-     resize_one("image/temp.jpg",img_size=800)
-     st.image("image/temp.jpg",width=800)
+            resize_one("image/temp.jpg",img_size=800)
+            st.image("image/temp.jpg",width=800)
     
     
     
