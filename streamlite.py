@@ -33,13 +33,13 @@ def resize_one(fn,img_size=800):
     img=cv2.imread(str(fn))
     height,width  = img.shape[0],img.shape[1]
     if max(width, height)>img_size:
-    if height > width:
-        width=width*(img_size/height)
-        height=img_size
-        img=cv2.resize(img,(int(width), int(height)))
-    elif height <= width:
-        height=height*(img_size/width)
-        width=img_size
+        if height > width:
+            width=width*(img_size/height)
+            height=img_size
+            img=cv2.resize(img,(int(width), int(height)))
+        elif height <= width:
+            height=height*(img_size/width)
+            width=img_size
         img=cv2.resize(img,(int(width), int(height)))
         cv2.imwrite(str(dest),img)
 
